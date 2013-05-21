@@ -1,0 +1,7 @@
+# The following line should be added to /etc/rc.local before the
+# exit command:
+
+cd /nodeconf && ./nodeconf_disk.py
+
+# (assuming that the nodeconf repository is located at /nodeconf)
+
