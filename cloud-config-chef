@@ -85,9 +85,9 @@ chef:
 
  # Specify a list of initial attributes used by the cookbooks
  initial_attributes:
-    cloud-init:
-    	initialized: "false"
-	fer_ht: "test"
+  cloud-init:
+   - initialized: "false"
+  fer_ht: "test"
 
  # if install_type is 'omnibus', change the url to download
  omnibus_url: "https://www.opscode.com/chef/install.sh"
