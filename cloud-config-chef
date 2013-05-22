@@ -66,17 +66,35 @@ chef:
 ## environment: "production"
 
  # Default validation name is chef-validator
-## validation_name: "yourorg-validator"
- validation_key: |
-    -----BEGIN PUBLIC KEY-----
-    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr94pjou4bNdVEI8FmfwA
-    JTuUZgAw2+m/sLgfeyUb16XrjHO1AEUym/I1m80FpLqYEi21VRYUbJNpkisp2/5W
-    nJN8vhLMS3CvZZgSpxm13zoaO8rOrqNFpL27Phya4noAc3zGSKSEblYaKTCiXdYb
-    i9Jjwx9at+9ZmQsmfakmjFO4YTXy/bzLzvikaNpap/yTtvoKDxoUuy3b9zbepNtW
-    S/hd/8KFk4EtlrvHqKwEKPeUK+B9ZHFJDwD+RJAAQwJXetB0/zUtihwNBg2s+cPy
-    dxmtFONR5TULQrxIrSQEk2glRxpWHcmDvtGULjwqmeGOBV6/7rXspXNRZCcTb3kg
-    jwIDAQAB
-    -----END PUBLIC KEY-----
+ validation_name: "chef-validator"
+ validation_cert: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAr94pjou4bNdVEI8FmfwAJTuUZgAw2+m/sLgfeyUb16XrjHO1
+    AEUym/I1m80FpLqYEi21VRYUbJNpkisp2/5WnJN8vhLMS3CvZZgSpxm13zoaO8rO
+    rqNFpL27Phya4noAc3zGSKSEblYaKTCiXdYbi9Jjwx9at+9ZmQsmfakmjFO4YTXy
+    /bzLzvikaNpap/yTtvoKDxoUuy3b9zbepNtWS/hd/8KFk4EtlrvHqKwEKPeUK+B9
+    ZHFJDwD+RJAAQwJXetB0/zUtihwNBg2s+cPydxmtFONR5TULQrxIrSQEk2glRxpW
+    HcmDvtGULjwqmeGOBV6/7rXspXNRZCcTb3kgjwIDAQABAoIBADQNOBWFiwdD0Fx/
+    SDQkHtLmSGzMH6nnDCI8zKyA9jWkWQwP7wFueaUoUe+UBdiUlY/D0YimaVMdakCl
+    39TJ+U6MZH5JSAgICRGzqcmlVWwFYWBTDUso7eLteO7QPpNLcri7tGApuTyC5WlN
+    iLDnPu3qTjahIBOSlt0yLKlCmDMt0h3dr6TClh81BL3e2r6u0efQQjfTE+W6XKXl
+    dUITHc6tzXuiMPvsPAoXszBTLtOufnYVtUIcTTGinNJq88PsGCsMueTAV0TBu3Mf
+    7LIAcuvYF77wcDS6DdgW4Fq9Yve+H4TUWndvtIuXgMfZCMULRkotuvBX1w34xUc0
+    uykB85ECgYEA6OOkx2E8QHhf11swJeR+R4f0KqHYnOo+O47FJYfaSy735iY2BVhY
+    OGscDFFksNai/JD8VsHLNCVDnxZPbIscny0aSiJkLQ6b5msqc1KlFUxfKbkDDI5P
+    BU0cfCxEegt0S+XaoU+XIXLjVhi5cPt3ksDzP0MZiOct3c+5rlcYzbkCgYEAwVHv
+    9tp2m5nP4GcqT2c0wEOiy6scR6w3TK1PP4OMBN+VeHN+XviItYaWYktUYE9lca4G
+    pU+0pe6+ilZj3aec60Wix8ruHcENuN3Bqk+rVJPqcK70Wy4IytFVaNZ6cu51pa8r
+    yWWgoFzMA/FMSekdFgbTMnViMduL7NDwjQx7xIcCgYEA5y/kidBq4Y0dh0mMmHEl
+    Mpkxt4iG4e5e7PyjlMgx2WS8zomsIs46dXdOlqPOEwZfMd4zwWQL9q3vXOPm4FeQ
+    iCtb57AQRfI0rR5BO84U9vmjlmWFM1ep9hdAabwAFi98uUNqL6w02Q2VxAgzPodD
+    gjlsv6Y6mP71NzZYm0r24nECgYA5ber4jWvAy8+6XUtvbTx5hV4+XOW40QtYhv/M
+    4XpeFEGmF8FJ21FZg9L2/mPhfJSpUcZ9o5EJ3kPSetmOBnYSWoyCB+H3CtvVuGMJ
+    AkPmi06RDRhgYeuQvOE/lL+plvdyMfizCrLOEOM2pJ9CMbNHUN261q5GG2+U+XkM
+    ndHCzwKBgC3TmNrQuS11Dqda6AQXwt4VhAe5+SAmqs2QDhXH+3HStH2gup2euoCF
+    3PVWK3HuuC7ayLMEPR4JsnWr6iF0JMF/VZXRLnRR78rjQoLZ1YcNBgxqiZDg0ShA
+    OWutcXF9DMoNxDtrHyWYqucQM81fMBL/qGSqjo989mQPGqzEdOYs
+    -----END RSA PRIVATE KEY-----
  
  # A run list for a first boot json
  run_list:
