@@ -56,6 +56,7 @@ chef:
 
  # Chef settings
  server_url: "https://161.53.67.200"
+ interval: 60
 
  # Node Name
  # Defaults to the instance-id if not present
@@ -107,10 +108,18 @@ chef:
   cloud-init:
    - initialized: "false"
   fer_ht: "test"
+  mysql:
+   - bind_address: "0.0.0.0"
+#  wordpress:
+#   - mysql_server: "192.168.100.6"
 
  # if install_type is 'omnibus', change the url to download
  omnibus_url: "https://www.opscode.com/chef/install.sh"
 
+packages:
+  - "mysql-server"
+  - "vim"
+  - "tcsh"
 
 # Capture all subprocess output into a logfile
 # Useful for troubleshooting cloud-init issues
