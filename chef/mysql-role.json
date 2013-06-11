@@ -1,0 +1,16 @@
+/* See http://docs.opscode.com/essentials_roles.html for details */
+{
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "name": "mysql",
+  "description": "A generic, publically accessible MySQL server",
+  "run_list": [
+    "recipe[mysql::server]"
+  ],
+  "default_attributes": {
+    "mysql": {
+      "bind_address": "0.0.0.0",
+      "innodb_file_per_table" : true
+    }
+  }
+}
