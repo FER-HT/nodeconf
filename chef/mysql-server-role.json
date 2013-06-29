@@ -2,7 +2,7 @@
 {
   "chef_type": "role",
   "json_class": "Chef::Role",
-  "name": "mysql",
+  "name": "mysql-server",
   "description": "A generic, publically accessible MySQL server",
   "run_list": [
     "recipe[mysql::server]"
@@ -10,7 +10,9 @@
   "default_attributes": {
     "mysql": {
       "bind_address": "0.0.0.0",
-      "innodb_file_per_table" : true
+      "tunable" {
+      	"innodb_file_per_table" : true
+      }
     }
   }
 }

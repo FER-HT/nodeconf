@@ -100,15 +100,13 @@ chef:
  run_list:
   - "recipe[chef-client::delete_validation]"
   - "recipe[chef-client]"
-  - "role[mysql-server]"
+  - "role[memcached-server]"
 
  # Specify a list of initial attributes used by the cookbooks
  initial_attributes:
   fer_ht: "test %(hostname) %(fqdn) %(instance_id) $fqdn %f $INSTANCE_ID"
-  mysql:
-   bind_address: "0.0.0.0"
-   tunable:
-     log_warnings: true
+  memcached:
+   listen: "0.0.0.0"
   chef_client:
    interval: 60
 
@@ -116,7 +114,7 @@ chef:
  omnibus_url: "https://www.opscode.com/chef/install.sh"
 
 packages:
-  - "mysql-server"
+  - "memcached"
   - "vim"
   - "tcsh"
 

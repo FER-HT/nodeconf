@@ -1,0 +1,25 @@
+/* See http://docs.opscode.com/essentials_roles.html for details */
+{
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "name": "wordpress-server",
+  "description": "A generic WordPress server which uses the MySQL database on localhost by default",
+  "run_list": [
+    "recipe[php]",
+    "recipe[php::module_apc]",
+    "recipe[php::module_gd]",
+    "recipe[php::module_mysql]",
+    "recipe[php::module_memcache]",
+    "recipe[wordpress]"
+  ],
+  "default_attributes": {
+    "wordpress": {
+      "db": {
+        "database"         : "wp",
+        "dbhost"           : "localhost",
+        "user"             : "wp",
+        "password"         : "wp"
+      }
+    }
+  }
+}
