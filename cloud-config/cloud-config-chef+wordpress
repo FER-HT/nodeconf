@@ -1,0 +1,147 @@
+#cloud-config
+#
+# This is an example file to automatically install chef-client and run a 
+# list of recipes when the instance boots for the first time.
+# Make sure that this file is valid yaml before starting instances.
+# It should be passed as user-data when starting the instance.
+#
+# This example assumes the instance is 12.04 (precise)
+
+
+# The default is to install from packages. 
+
+# Key from http://apt.opscode.com/packages@opscode.com.gpg.key
+apt_sources:
+ - source: "deb http://apt.opscode.com/ $RELEASE-0.10 main"
+   key: |
+     -----BEGIN PGP PUBLIC KEY BLOCK-----
+     Version: GnuPG v1.4.9 (GNU/Linux)
+     
+     mQGiBEppC7QRBADfsOkZU6KZK+YmKw4wev5mjKJEkVGlus+NxW8wItX5sGa6kdUu
+     twAyj7Yr92rF+ICFEP3gGU6+lGo0Nve7KxkN/1W7/m3G4zuk+ccIKmjp8KS3qn99
+     dxy64vcji9jIllVa+XXOGIp0G8GEaj7mbkixL/bMeGfdMlv8Gf2XPpp9vwCgn/GC
+     JKacfnw7MpLKUHOYSlb//JsEAJqao3ViNfav83jJKEkD8cf59Y8xKia5OpZqTK5W
+     ShVnNWS3U5IVQk10ZDH97Qn/YrK387H4CyhLE9mxPXs/ul18ioiaars/q2MEKU2I
+     XKfV21eMLO9LYd6Ny/Kqj8o5WQK2J6+NAhSwvthZcIEphcFignIuobP+B5wNFQpe
+     DbKfA/0WvN2OwFeWRcmmd3Hz7nHTpcnSF+4QX6yHRF/5BgxkG6IqBIACQbzPn6Hm
+     sMtm/SVf11izmDqSsQptCrOZILfLX/mE+YOl+CwWSHhl+YsFts1WOuh1EhQD26aO
+     Z84HuHV5HFRWjDLw9LriltBVQcXbpfSrRP5bdr7Wh8vhqJTPjrQnT3BzY29kZSBQ
+     YWNrYWdlcyA8cGFja2FnZXNAb3BzY29kZS5jb20+iGAEExECACAFAkppC7QCGwMG
+     CwkIBwMCBBUCCAMEFgIDAQIeAQIXgAAKCRApQKupg++Caj8sAKCOXmdG36gWji/K
+     +o+XtBfvdMnFYQCfTCEWxRy2BnzLoBBFCjDSK6sJqCu5Ag0ESmkLtBAIAIO2SwlR
+     lU5i6gTOp42RHWW7/pmW78CwUqJnYqnXROrt3h9F9xrsGkH0Fh1FRtsnncgzIhvh
+     DLQnRHnkXm0ws0jV0PF74ttoUT6BLAUsFi2SPP1zYNJ9H9fhhK/pjijtAcQwdgxu
+     wwNJ5xCEscBZCjhSRXm0d30bK1o49Cow8ZIbHtnXVP41c9QWOzX/LaGZsKQZnaMx
+     EzDk8dyyctR2f03vRSVyTFGgdpUcpbr9eTFVgikCa6ODEBv+0BnCH6yGTXwBid9g
+     w0o1e/2DviKUWCC+AlAUOubLmOIGFBuI4UR+rux9affbHcLIOTiKQXv79lW3P7W8
+     AAfniSQKfPWXrrcAAwUH/2XBqD4Uxhbs25HDUUiM/m6Gnlj6EsStg8n0nMggLhuN
+     QmPfoNByMPUqvA7sULyfr6xCYzbzRNxABHSpf85FzGQ29RF4xsA4vOOU8RDIYQ9X
+     Q8NqqR6pydprRFqWe47hsAN7BoYuhWqTtOLSBmnAnzTR5pURoqcquWYiiEavZixJ
+     3ZRAq/HMGioJEtMFrvsZjGXuzef7f0ytfR1zYeLVWnL9Bd32CueBlI7dhYwkFe+V
+     Ep5jWOCj02C1wHcwt+uIRDJV6TdtbIiBYAdOMPk15+VBdweBXwMuYXr76+A7VeDL
+     zIhi7tKFo6WiwjKZq0dzctsJJjtIfr4K4vbiD9Ojg1iISQQYEQIACQUCSmkLtAIb
+     DAAKCRApQKupg++CauISAJ9CxYPOKhOxalBnVTLeNUkAHGg2gACeIsbobtaD4ZHG
+     0GLl8EkfA8uhluM=
+     =zKAm
+     -----END PGP PUBLIC KEY BLOCK-----
+
+chef:
+
+ # Valid values are 'gems' and 'packages' and 'omnibus'
+ install_type: "packages"
+
+ # Boolean: run 'install_type' code even if chef-client
+ #          appears already installed.
+ force_install: false
+
+ # Chef settings
+ server_url: "https://161.53.67.200"
+
+ # Node Name
+ # Defaults to the instance-id if not present
+# node_name: "%(fqdn)"
+
+ # Environment
+ # Defaults to '_default' if not present
+## environment: "production"
+
+ # Default validation name is chef-validator
+ validation_name: "chef-validator"
+ validation_cert: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAr94pjou4bNdVEI8FmfwAJTuUZgAw2+m/sLgfeyUb16XrjHO1
+    AEUym/I1m80FpLqYEi21VRYUbJNpkisp2/5WnJN8vhLMS3CvZZgSpxm13zoaO8rO
+    rqNFpL27Phya4noAc3zGSKSEblYaKTCiXdYbi9Jjwx9at+9ZmQsmfakmjFO4YTXy
+    /bzLzvikaNpap/yTtvoKDxoUuy3b9zbepNtWS/hd/8KFk4EtlrvHqKwEKPeUK+B9
+    ZHFJDwD+RJAAQwJXetB0/zUtihwNBg2s+cPydxmtFONR5TULQrxIrSQEk2glRxpW
+    HcmDvtGULjwqmeGOBV6/7rXspXNRZCcTb3kgjwIDAQABAoIBADQNOBWFiwdD0Fx/
+    SDQkHtLmSGzMH6nnDCI8zKyA9jWkWQwP7wFueaUoUe+UBdiUlY/D0YimaVMdakCl
+    39TJ+U6MZH5JSAgICRGzqcmlVWwFYWBTDUso7eLteO7QPpNLcri7tGApuTyC5WlN
+    iLDnPu3qTjahIBOSlt0yLKlCmDMt0h3dr6TClh81BL3e2r6u0efQQjfTE+W6XKXl
+    dUITHc6tzXuiMPvsPAoXszBTLtOufnYVtUIcTTGinNJq88PsGCsMueTAV0TBu3Mf
+    7LIAcuvYF77wcDS6DdgW4Fq9Yve+H4TUWndvtIuXgMfZCMULRkotuvBX1w34xUc0
+    uykB85ECgYEA6OOkx2E8QHhf11swJeR+R4f0KqHYnOo+O47FJYfaSy735iY2BVhY
+    OGscDFFksNai/JD8VsHLNCVDnxZPbIscny0aSiJkLQ6b5msqc1KlFUxfKbkDDI5P
+    BU0cfCxEegt0S+XaoU+XIXLjVhi5cPt3ksDzP0MZiOct3c+5rlcYzbkCgYEAwVHv
+    9tp2m5nP4GcqT2c0wEOiy6scR6w3TK1PP4OMBN+VeHN+XviItYaWYktUYE9lca4G
+    pU+0pe6+ilZj3aec60Wix8ruHcENuN3Bqk+rVJPqcK70Wy4IytFVaNZ6cu51pa8r
+    yWWgoFzMA/FMSekdFgbTMnViMduL7NDwjQx7xIcCgYEA5y/kidBq4Y0dh0mMmHEl
+    Mpkxt4iG4e5e7PyjlMgx2WS8zomsIs46dXdOlqPOEwZfMd4zwWQL9q3vXOPm4FeQ
+    iCtb57AQRfI0rR5BO84U9vmjlmWFM1ep9hdAabwAFi98uUNqL6w02Q2VxAgzPodD
+    gjlsv6Y6mP71NzZYm0r24nECgYA5ber4jWvAy8+6XUtvbTx5hV4+XOW40QtYhv/M
+    4XpeFEGmF8FJ21FZg9L2/mPhfJSpUcZ9o5EJ3kPSetmOBnYSWoyCB+H3CtvVuGMJ
+    AkPmi06RDRhgYeuQvOE/lL+plvdyMfizCrLOEOM2pJ9CMbNHUN261q5GG2+U+XkM
+    ndHCzwKBgC3TmNrQuS11Dqda6AQXwt4VhAe5+SAmqs2QDhXH+3HStH2gup2euoCF
+    3PVWK3HuuC7ayLMEPR4JsnWr6iF0JMF/VZXRLnRR78rjQoLZ1YcNBgxqiZDg0ShA
+    OWutcXF9DMoNxDtrHyWYqucQM81fMBL/qGSqjo989mQPGqzEdOYs
+    -----END RSA PRIVATE KEY-----
+ 
+ # A run list for a first boot json
+ run_list:
+  - "recipe[chef-client::delete_validation]"
+  - "recipe[chef-client]"
+  - "role[wordpress-server]"
+
+ # Specify a list of initial attributes used by the cookbooks
+ # This entire file is processed as a template by the cloud-portal code
+ # The templating infrastructure only recognizes replacing variables,
+ # and the variable replacement syntax is Ruby-like: #{variable_name}.
+ # There are two sources of variables: those provided by the cloud-portal
+ # code, and those from chef attributes.
+ # The variables always reference the host ident (the "ident" field for
+ # services of a single package in the cloud-portal), with the intent of
+ # cross-referencing host configurations within a single package.
+ # The format of the variables is:
+ #      %{host_ident}.%{variable}
+ # The cloud-portal code currently only supports network addresses in
+ # the format:
+ #      %{host_ident}.%{network_name}_%{protocol}
+ # where:
+ #      network_name - is the name of the network given in OpenStack 
+ #                     (e.g. "public" or "private")
+ #      protocol     - is one of "ipv4" or "ipv6".
+ # An example variable from cloud-portal code is "mysql.public_ipv4".
+ # An example variable from chef attributes is "dbserver.mysql.server_root_password"
+ initial_attributes:
+  fer_ht: "test %{hostname} %{fqdn} %(instance_id) $fqdn %f $INSTANCE_ID"
+  wordpress:
+   db:
+    dbhost: "%{mysql.public_ipv4}"
+    database: "wp"
+    user: "wp"
+    password: "%{mysql.mysql.server_root_password}"
+  chef_client:
+   interval: 60
+
+ # if install_type is 'omnibus', change the url to download
+ omnibus_url: "https://www.opscode.com/chef/install.sh"
+
+packages:
+  - "apache2"
+  - "php"
+  - "vim"
+  - "tcsh"
+
+# Capture all subprocess output into a logfile
+# Useful for troubleshooting cloud-init issues
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
