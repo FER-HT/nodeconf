@@ -59,7 +59,7 @@ chef:
 
  # Node Name
  # Defaults to the instance-id if not present
-# node_name: "%(fqdn)"
+ node_name: "%{node.hostname}"
 
  # Environment
  # Defaults to '_default' if not present

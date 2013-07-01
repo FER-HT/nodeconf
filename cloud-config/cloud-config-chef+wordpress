@@ -59,7 +59,7 @@ chef:
 
  # Node Name
  # Defaults to the instance-id if not present
-# node_name: "%(fqdn)"
+ node_name: "%{node.hostname}"
 
  # Environment
  # Defaults to '_default' if not present
@@ -126,10 +126,10 @@ chef:
   fer_ht: "test %{hostname} %{fqdn} %(instance_id) $fqdn %f $INSTANCE_ID"
   wordpress:
    db:
-    dbhost: "%{mysql.public_ipv4}"
+    dbhost: "%{mysql.private100_ipv4}"
     database: "wp"
     user: "wp"
-    password: "%{mysql.mysql.server_root_password}"
+    root_password: "%{mysql.mysql.server_root_password}"
   chef_client:
    interval: 60
 
